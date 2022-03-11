@@ -20,12 +20,12 @@ toc_icon: "cog"
 Int / Double / Float / Bool / String  
 그리고 Collection Type에 Array / Set / Dictionary가 있습니다.
 
-Constants는 변하지 않는 값, 즉 상수입니다. let 키워드를 이용해서 만듭니다.
-'''
+Constants는 변하지 않는 값, 즉 상수입니다. let 키워드를 이용해서 만듭니다.  
 
+```swift
 let myConstants = 50
+```
 
-'''
 
 Tuple 타입은 하나의 합쳐진 값의 형태로 여러개의 값들을 반환
 Optionals 는 "값이 있다. 그리고 그것은 x와 같다." 또는 "값이 없다."를 나타냄  
