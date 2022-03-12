@@ -67,9 +67,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body : some View {
-
-
-        Text("Hello")
+  
+      Text("Hello")
 
     }
 }
@@ -85,7 +84,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct는 ContentView라는 이름의 View와 ContentView_Previews라는 이름의 previewProvider를 포함하고 있다.  
 
-View : 스크린에 렌더링 될 컨텐트를 담는 컨테이너다. subviews / parent views를 가질 수도 있다. View는 text, buttons, stacks, 그리고 lists 등 어떤 것이든 담을 수 있다.
+View : 스크린에 렌더링 될 컨텐트를 담는 컨테이너다. sub views / parent views를 가질 수도 있다. View는 text, buttons, stacks, 그리고 lists 등 어떤 것이든 담을 수 있다.
 
 ContentView 안에 body 변수를 가진다. 뷰 컨텐츠의 배열이 형성되는 곳이다. var body : some View 처럼 some 키워드가 View 앞에 오는데 이것은 body 변수가 뷰의 컨텐츠가 어떤 것이든 View를 return한다는 것을 나타낸다.  
 
