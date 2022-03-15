@@ -15,10 +15,12 @@ toc_icon: "cog"
 
 ### 💭 ..  
 <div class="notice">
-  <h4>Swift 배워보기</h4>
-  <p>Swift는 어떤 언어일까?</p>
+  <h4>Swift는 어떤 언어일까?</h4>
+  <p>Java를 공부한지 거의 5개월이 지났다. 국비수업 2개월 + 독학 3개월의 과정을 지났다. Java는 첫인상 보다는 매력있고 재미있는 언어였다.
+  가장 많이 사용되는 프로그래밍 언어 중 하나라 자료가 넘치도록 많다는 장점도 가지고 있다. 그러던 중 친구를 통해 Swift의 존재를 알게되었다.
+  원래 그 이름은 들어봤지만 Swift가 프로그래밍 언어인지 IDE인지 모를정도로 잘 알지 못했다. 그렇게 Swift에 대한 정보는 '잘 알지 못함'에서 '애플 개발자들이 사용하는 언어'로 승급했다. </p>
 </div>
-
+신호로 퇴실 처리했습니다 감사합니다
 
 ### 1. 📖
 [A Swift Tour](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html) 공식 가이드를 읽으며 공부합니다.
@@ -56,7 +58,7 @@ let explicitDouble: Double = 70
 
 
 ### 3. The boilerplate code
-[Intro to SwiftUI: Digital Clock](https://medium.com/iu-women-in-computing/intro-to-swiftui-digital-clock-d0a60e05d394) <- 볼르그를 보며 공부합니다.
+[Intro to SwiftUI: Digital Clock](https://medium.com/iu-women-in-computing/intro-to-swiftui-digital-clock-d0a60e05d394) <- 블로그를 보며 공부합니다.
 
 이론만 읽다보니 지루해지기 시작합니다. 지금 가장 만들어보고 싶은 앱은 디지털 시계 앱입니다. 구글링을 해봅니다.
 여러개의 친절한 블로그를 발견했는데요. 그 중 하나를 읽어보며 코드 구조를 분석해봅니다.
@@ -98,7 +100,7 @@ struct ContentView: View {
 }
 ```
 
-- '@State' 키워드는 해당 변수가 모니터링 되고 있다는 것을 의미한다. 만약 변수의 값이 바뀌면 View는 업데이트를 반영한다.
+- '@State' property wrapper는 해당 변수가 모니터링 되고 있다는 것을 의미한다. 만약 변수의 값이 바뀌면 View는 업데이트를 반영한다.
 
 - 'Date()'는 사용자가 있는 지역의 날짜와 시간 정보를 가져오는 initializer이다.  
 
@@ -126,7 +128,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 ```
 
-시간 정보는 계속해서 바뀌므로 @State 키워드를 사용해서 바뀐 시간을 계속해서 반영해주고 문자열 date에 escape character '\'를 추가해서 Date()를 담고 있는 date 변수의 할당되어 있는 문자열을 가져온다.  
+시간 정보는 계속해서 바뀌므로 property wrapper인 @State 를 사용해서 바뀐 시간을 계속해서 반영해주고 문자열 date에 escape character '\'를 추가해서 Date()를 담고 있는 date 변수의 할당되어 있는 문자열을 가져온다.  
 
 ### 5. DateFormatter 사용
 
@@ -195,4 +197,64 @@ self.updateTimer function은 저장할 필요가 없는 값을 반환하기 때�
 
 
 
-... 다음에 계속
+### 7. Time of Day Greeting  
+
+시간에 따라 달라지는 인사말을 추가해볼 것입니다.
+- 4:00:00am to 11:59:59am -> Morning
+- 12:00:00pm to 4:59:59pm -> Afternoon
+- 5:00:00pm to 8:59:59pm -> Evening
+- 8:00:00pm to 3:59:59am -> Night  
+위의 기준으로 시간을 나누고 각 시간대의 인사말이 시계 아래에 나타나도록 해봅시다.
+
+```swift
+func greeting() -> String {
+        var greet = ""
+
+        let midNight0 = Calendar.current.date(bySettingHour: 0, minute: 00, second:00, of: date)!
+        let nightEnd = Calendar.current.date(bySettingHour: 3, minute: 59, second: 59, of: date)!
+
+        let morningStart = Calendar.current.date(bySettingHour: 4, minute: 00, second: 0, of: date)!
+        let morningEnd = Calendar.current.date(bySettingHour: 11, minute: 59, second: 59, of: date)!
+
+        let noonStart = Calendar.current.date(bySettingHour: 12, minute: 00, second: 00, of: date)!
+        let noonEnd = Calendar.current.date(bySettingHour: 16, minute: 59, second: 59, of: date)!
+
+        let eveStart = Calendar.current.date(bySettingHour: 17, minute: 00, second: 00, of: date)!
+        let eveEnd = Calendar.current.date(bySettingHour: 20, minute: 59, second: 59, of: date)!
+
+        let nightStart = Calendar.current.date(bySettingHour: 21, minute: 00, second: 00, of: date)!
+        let midNight24 = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
+
+        if ((date >= midNight0) && (date <= nightEnd)) {
+            greet = "Good Night."
+        } else if (date >= morningStart) && (date <= morningEnd) {
+            greet = "Good Morning"
+        } else if ((date >= noonStart) && (noonEnd >= date)) {
+            greet = "Good Afternoon."
+        } else if ((date >= eveStart) && (eveEnd >= date)) {
+            greet = "Good Evening."
+        } else if ((date >= nightStart) && (midNight24 >= date)) {
+            greet = "Good night."
+        }
+
+        return greet
+
+    }
+```
+
+
+Calendar.current.date(bySettingHour...) 메서드는 주어진 date 데이터에 특정한 시간을 나타내는 variable을 만듭니다.
+여기서는 우리가 위에서 만든 @State date가 주어진 날짜 데이터입니다.
+
+아래 부분은 나누어 놓은 시간대와 현재 시간을 비교하는 부분입니다.
+현재 시간과 비교해서 해당되는 인사말을 greet 변수에 담고 반환합니다.
+여기까지 하면 시간을 스크린에 띄우는 것은 완성!
+
+... 디지털시계 만들기는 계속 됩니다.
+
+
+<!--
+### 8. 이제부터는 화면을 꾸며보자.  
+
+시계의 배경 부분을 사진을 넣어 사용할 수 있었으면 좋겠다는 생각이 들었다.  
+검색 중 Unsplash API를 발견했고 적용해보고자 한다. -->
