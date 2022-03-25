@@ -43,7 +43,10 @@ View protocol은 기능의 청사진을 제공합니다. 이 경우에는 SwiftU
 
 custom view를 view hirarchy에 포함되게 하려면 View protocol이 요구하는 몇가지 사항들을 충족시켜야 합니다.
 
-View pro
+View protocol의 주요구사항은 body computed property를 꼭 정의해주어야 한다는 것입니다.
+
+
+미완성 포스팅..계속됩니다.
 
 
 
@@ -56,7 +59,7 @@ View pro
 
 
 
-Protocol인 View와 Text, Image, Button 같은 SwiftUI built-in View, SwiftUI built-in view가 아닌 다른 framework의 view.  
+<!-- Protocol인 View와 Text, Image, Button 같은 SwiftUI built-in View, SwiftUI built-in view가 아닌 다른 framework의 view.  
 
 
 아래는 두번째 의미의 View중 하나인 Text를 나타내는 코드입니다. foregroundColor라는 modifier에 파라미터로 .red를 주어 글씨색이 빨간색으로 보이게 해주었습니다.
@@ -95,6 +98,3 @@ Text("Hello, World!")
   뷰가 변경하거나 관찰할 수 있도록하는 방식을 필요로 한다.
 
   poperty wrappers는 변경되기 쉬운 데이터들과 각각의 뷰들이 어떻게 상호작용을 하는지와 관련이 있다. -->
-
-
-```
