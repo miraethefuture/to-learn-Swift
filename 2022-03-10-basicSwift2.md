@@ -11,115 +11,168 @@ toc: true
 toc_sticky: true
 toc_label: "👷"
 toc_icon: "cog"
+header:
+  teaser: /assets/images/yourDigitalClock.png
 ---
 
-### 💭 ..  
+### 💭 ..    
 <div class="notice">
   <h4>Swift는 어떤 언어일까?</h4>
-  <p>Java를 공부한지 거의 5개월이 지났다. 국비수업 2개월 + 독학 3개월의 과정을 지났다. Java는 첫인상 보다는 매력있고 재미있는 언어였다.
-  가장 많이 사용되는 프로그래밍 언어 중 하나라 자료가 넘치도록 많다는 장점도 가지고 있다. 그러던 중 친구를 통해 Swift의 존재를 알게되었다.
-  원래 그 이름은 들어봤지만 Swift가 프로그래밍 언어인지 IDE인지 모를정도로 잘 알지 못했다. 그렇게 Swift에 대한 정보는 '잘 알지 못함'에서 '애플 개발자들이 사용하는 언어'로 승급했다. </p>
+  <p>디지털시계 앱을 만들며 Swift의 기초적인 것들을 알아봅니다.</p>
 </div>
-신호로 퇴실 처리했습니다 감사합니다
 
-### 1. 📖
-[A Swift Tour](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html) 공식 가이드를 읽으며 공부합니다.
+<!-- Java를 공부한지 거의 5개월이 지났다. 국비수업 2개월 + 독학 3개월의 과정을 지났다. Java는 첫인상 보다는 매력있고 재미있는 언어였다.
+가장 많이 사용되는 프로그래밍 언어 중 하나라 자료가 넘치도록 많다는 장점도 가지고 있다. 그러던 중 친구를 통해 Swift의 존재를 알게되었다.
+원래 그 이름은 들어봤지만 Swift가 프로그래밍 언어인지 IDE인지 모를정도로 잘 알지 못했다. 그렇게 Swift에 대한 정보는 '잘 알지 못함'에서 '애플 개발자들이 사용하는 언어'로 승급했다.  -->
 
-새로운 프로그래밍 언어를 배울 때, 흔히 첫번째 프로그램으로 "Hello, world!"를 출력하는 프로그램을 만들곤 하죠. Swift에서는 단 한줄로 이 프로그램을 작성할 수 있습니다.
 
-```swift
+<center><video src="https://user-images.githubusercontent.com/85061148/159151492-81fcd9d7-b468-460c-ad3a-f7f196d21755.mov" controls="controls" style="max-width: 600px">
+</video></center>
 
-print("Hello, world!")
-
-```
-
-C 나 Objective-C로 코드를 작성해본 경험이 있다면 이 syntax가 낯설지 않을 것입니다. 스위프트에서 이 한줄의 코드는 완벽하게 한 프로그램입니다. input/output 또는 문자열을 다루기 위해 따로 라이브러리를 추가하지 않아도 됩니다. 전역 범위로 작성된 코드는 프로그램의 시작점으로 사용되므로 main() function 또한 필요하지 않습니다. 각각의 statement의 끝에 세미콜론(;)을 작성하지도 않습니다.  
-
-### 2. 간단한 값들(Simple Values)  
-
-상수는 let, 변수는 var를 사용해서 만듭니다. var(변수)에는 다른 값을 다시 할당할 수 있고, let(상수)는 한번 값이 정해지면 바뀌지 않습니다.
+### 1. ContentView와 ContentView_Previews
+[Intro to SwiftUI: Digital Clock](https://medium.com/iu-women-in-computing/intro-to-swiftui-digital-clock-d0a60e05d394) <- 블로그의 글을 보며 공부합니다.
 
 ```swift
-
-var myVariable = 42
-myVariable = 50
-let myConstant = 42
-
-```
-var, let의 이름 뒤에 : 을 이용해서 데이터 타입을 지정할 수 있습니다. 컴파일러가 할당된 값이 어떤 데이터 자료형을 가지고 있는지 추측할 수 있는 경우에는 자료형을 명시하지 않아도 됩니다.
-
-```swift
-
-let implicitInteger = 70
-let implicitDouble = 70.0
-let explicitDouble: Double = 70
-
-```  
-
-
-### 3. The boilerplate code
-[Intro to SwiftUI: Digital Clock](https://medium.com/iu-women-in-computing/intro-to-swiftui-digital-clock-d0a60e05d394) <- 블로그를 보며 공부합니다.
-
-이론만 읽다보니 지루해지기 시작합니다. 지금 가장 만들어보고 싶은 앱은 디지털 시계 앱입니다. 구글링을 해봅니다.
-여러개의 친절한 블로그를 발견했는데요. 그 중 하나를 읽어보며 코드 구조를 분석해봅니다.
-
-```swift
-
-import SwiftUI
-
-struct ContentView: View {
-    var body : some View {
-
-
-        Text("Hello")
-
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-
-    }
-}
-```
-
-struct는 ContentView라는 이름의 View와 ContentView_Previews라는 이름의 previewProvider를 포함하고 있다.  
-
-View : 스크린에 렌더링 될 컨텐트를 담는 컨테이너다. subviews / parent views를 가질 수도 있다. View는 text, buttons, stacks, 그리고 lists 등 어떤 것이든 담을 수 있다.
-
-ContentView 안에 body 변수를 가진다. 뷰 컨텐츠의 배열이 형성되는 곳이다. var body : some View 처럼 some 키워드가 View 앞에 오는데 이것은 body 변수가 뷰의 컨텐츠가 어떤 것이든 View를 return한다는 것을 나타낸다.  
-
-### 4. 현재 날짜와 시간 정보 가져오기  
-
-```swift
-
-struct ContentView: View {
-  @State var date = Date()
-}
-```
-
-- '@State' property wrapper는 해당 변수가 모니터링 되고 있다는 것을 의미한다. 만약 변수의 값이 바뀌면 View는 업데이트를 반영한다.
-
-- 'Date()'는 사용자가 있는 지역의 날짜와 시간 정보를 가져오는 initializer이다.  
-
-```swift
+//  ContentView.swift
+//  Your Digital Clock
 
 import SwiftUI
 
 struct ContentView: View {
     @State var date = Date()
-
     var body: some View {
 
-        VStack {
-             Text("\(date)")
+        ZStack {
+            Image("unsplash-photo")
+            .resizable()
+            .scaledToFill()
+            .ignoresSafeArea()
 
+        VStack {
+             Text("\(timeString(date: date))")
+                 .font(.system(size: 160))
+                 .fontWeight(.bold)
+                 .foregroundColor(Color.white)
+                 .onAppear(perform: {let _ = self.updateTimer})
+                // 여기 이해 안됨. date: date
+
+             Text("\(greeting())")
+                 .font(.system(size: 75))
+                 .foregroundColor(Color.white)
+
+             Text("\(dateString(date: date))")
+                 .font(.system(size: 20))
+                 .foregroundColor(Color.white)
+                 .onAppear(perform: {let _ = self.updateTimer})
+                 .offset(y: 100)
+               } // VStack
+           } // ZStack
+       } // body
+
+
+    // ContentView structure
+    var timeFormat: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm:ss a"
+        return formatter
+    } // 시간 부분 Formatter
+
+    var dateFormat: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd EEEE"
+        return formatter
+    }
+
+    func timeString(date: Date) -> String {
+        let time = timeFormat.string(from: date)
+        return time
+    }
+
+    func dateString(date: Date) -> String {
+        let time = dateFormat.string(from: date)
+        return time
+    }
+
+
+    var updateTimer: Timer {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.date = Date()
+        })
+    } // timeInterval 마다 블락 안의 코드가 실행됨
+
+    func greeting() -> String {
+        var greet = ""
+
+        let midNight0 = Calendar.current.date(bySettingHour: 0, minute: 00, second:00, of: date)!
+        let nightEnd = Calendar.current.date(bySettingHour: 3, minute: 59, second: 59, of: date)!
+
+        let morningStart = Calendar.current.date(bySettingHour: 4, minute: 00, second: 0, of: date)!
+        let morningEnd = Calendar.current.date(bySettingHour: 11, minute: 59, second: 59, of: date)!
+
+        let noonStart = Calendar.current.date(bySettingHour: 12, minute: 00, second: 00, of: date)!
+        let noonEnd = Calendar.current.date(bySettingHour: 16, minute: 59, second: 59, of: date)!
+
+        let eveStart = Calendar.current.date(bySettingHour: 17, minute: 00, second: 00, of: date)!
+        let eveEnd = Calendar.current.date(bySettingHour: 20, minute: 59, second: 59, of: date)!
+
+        let nightStart = Calendar.current.date(bySettingHour: 21, minute: 00, second: 00, of: date)!
+        let midNight24 = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
+
+        if ((date >= midNight0) && (date <= nightEnd)) {
+            greet = "Good Night"
+        } else if (date >= morningStart) && (date <= morningEnd) {
+            greet = "Good Morning"
+        } else if ((date >= noonStart) && (noonEnd >= date)) {
+            greet = "Good Afternoon"
+        } else if ((date >= eveStart) && (eveEnd >= date)) {
+            greet = "Good Evening"
+        } else if ((date >= nightStart) && (midNight24 >= date)) {
+            greet = "Good Night"
+        }
+
+        return greet
+
+    } // func greeting
+
+} // ContentView 끝
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+        .previewInterfaceOrientation(.landscapeLeft)
+    }
+}
+```
+Xcode에서 처음 프로젝트를 열면 ContentView 그리고 ContentView_Previews라는 이름을 가진 두개의 structure가 기본적으로 생성되어 있습니다. 이 글에서는 이 두가지의 structure를 이용하여 간단한 디지털 시계앱을 만들어보며 시간/날짜 정보를 불러오는 방법에 대해 알아보겠습니다.
+
+<code>ContentView: View</code>와 <code>var body: some View</code>에서 View는 이 structure가 View protocol을 따를 것이라는 의미입니다. Protocol은 요구사항을 가지고 있습니다. View 프로토콜의 가장 주요한 요구사항은 body property가 있어야 한다는 것입니다.
+
+body property 부분에는 스크린에 나타날 view들이 작성됩니다. 이때의 view는 프로토콜 view가 아닌 Text view, Image view, Button view와 같은 SwiftUI의 built-in view 또는 외부 프레임의 view들을 말합니다. 위 코드에서는 ZStack의 하위에 Image view와 VStack이, 그리고 VStack 하위에는 Text view가 body property 안에 작성되었습니다.
+
+### 2. 현재 날짜와 시간 정보 가져오기  
+
+```swift
+struct ContentView: View {
+  @State var date = Date()
+}
+```
+
+- '@State' property wrapper는 해당 변수가 모니터링 되고 있다는 것을 의미합니다.
+
+- 'Date()'는 사용자가 있는 지역의 날짜와 시간 정보를 가져옵니다.
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+    @State var date = Date()
+    var body: some View {
+        VStack {
+          Text("\(date)")
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -128,37 +181,59 @@ struct ContentView_Previews: PreviewProvider {
 }
 ```
 
-시간 정보는 계속해서 바뀌므로 property wrapper인 @State 를 사용해서 바뀐 시간을 계속해서 반영해주고 문자열 date에 escape character '\'를 추가해서 Date()를 담고 있는 date 변수의 할당되어 있는 문자열을 가져온다.  
+시간 정보는 초마다 계속해서 바뀌므로 property wrapper인 @State 를 사용해서 바뀐 시간을 계속해서 업데이트, 반영해 주고 문자열 date에 escape character \ 를 추가해서 Date()를 담고 있는 date 변수의 할당되어 있는 정보를 문자열로 가져옵니다.
 
-### 5. DateFormatter 사용
 
-body variable 아래에 DateFormatter를 사용하는 코드를 작성해봅니다.
+### 3. DateFormatter
+```swift
+import SwiftUI
+
+struct dateString: View {
+    @State var date = Date()
+    var body: some View {
+        Text("\(date)")
+    }
+}
+
+struct dateString_Previews: PreviewProvider {
+    static var previews: some View {
+        dateString()
+    }
+}
+```
+
+위 코드로 가져온 날짜/시간 데이터를 화면에 출력해봅니다. 아직 형식을 지정해주지 않았기 때문에 아래 사진처럼 보여집니다. 날짜, 시간, 분이라는 정보가 포함되어 있지 않고 나열된 문자열로써 나타납니다.
+
+<img src="/assets/images/date_original.png" alt="date_original" width="550">
+
+시간 부분의 형식을 먼저 지정해보겠습니다.
 
 ```swift
 var timeFormat: DateFormatter {
   let formatter = DateFormatter()
-  formatter.dateFormat = ("hh:mm:ss a")
+  formatter.dateFormat = "hh:mm:ss a"
   return formatter
 }
 ```
 
-이 코드를 분석해보자!  
-timeFormatter는 DateFormatter 객체이다. timeFormatter는 DateFormatter의 메서드를 호출할 수 있다.  
-dateFormat은 DateFormatter객체의 property이다. 주어진 날짜/시간 데이터에서 우리가 원하는 것만 보여줄 수 있도록 해준다.
-- 소문자 "hh" = 12시간 표기법
-- 대문자 "HH" = 24시간 표기법
-- "mm" = 분, "ss" = 초  
-- a는 am/pm을 보여준다.  
+**DateFormatter**는 시간/날짜 데이터를 문자열 형식으로 보여지게 하는 Class입니다. dateFormat은 DateFormatter Class의 instance property입니다. 데이터를 받은 사람이 사용할 수 있는 날짜/시간 데이터의 형식 중 하나입니다.
+- hh - 12시간 표기법 시간
+- mm -  분
+- ss -  초
+- a - am/pm
 
-그 다음으로는 가져온 날짜 데이터를 문자열로 바꿔주는 function을 작성해봅니다.  
+그 다음으로는 가져온 시간 데이터를 문자열로 바꿔주는 function을 작성해봅니다.  
 ```swift
 func timeString(date: Date) -> String {
   let time = timeFormat.string(from: date)
   return time
-}s
+}
 ```
 
-### 6. Live Time  
+### 여기까지 수정 👷
+
+
+### 4. Live Time  
 
 
 SwiftUI가 State variable에 일어난 변화들을 감시합니다. @State는 스스로 변화를 만들지는 않습니다.  
@@ -197,7 +272,7 @@ self.updateTimer function은 저장할 필요가 없는 값을 반환하기 때�
 
 
 
-### 7. Time of Day Greeting  
+### 5. Time of Day Greeting  
 
 시간에 따라 달라지는 인사말을 추가해볼 것입니다.
 - 4:00:00am to 11:59:59am -> Morning
@@ -252,7 +327,8 @@ Calendar.current.date(bySettingHour...) 메서드는 주어진 date 데이터에
 
 ... 디지털시계 만들기는 계속 됩니다.
 
-
+<center><video src="https://user-images.githubusercontent.com/85061148/158997210-efaac4ad-797a-4da4-9039-5e5a123a39e9.mov" controls="controls" style="max-width: 600px">
+</video></center>
 <!--
 ### 8. 이제부터는 화면을 꾸며보자.  
 
