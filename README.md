@@ -1,2 +1,2 @@
 # to-learn-Swift
-Swift 공부
+Swift에 대해 알아봅니다.
