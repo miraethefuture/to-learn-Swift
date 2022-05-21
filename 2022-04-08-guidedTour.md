@@ -98,6 +98,10 @@ All information below comes from the Swift documentation and is for personal lea
   // surveyAnswer is automatically set to nil
   ```
 
+#### Nil-Coalescing Operator  
+
+  Nil-Coalescing Operator (a ?? b)는 만약 옵셔널 a가 값을 가지고 있다면 optional a를 unwrap 합니다. a가 nil이라면 default 값인 b를 리턴합니다.
+
 #### If문과 Optionals  
 
  ```swift
@@ -219,12 +223,6 @@ All information below comes from the Swift documentation and is for personal lea
   let implicitString: String = assumedString // ! 작성하지 않아도 됨
   ```
 
-  
-
-
-
-
-
 ## Switch  
 
   ```swift  
@@ -246,7 +244,6 @@ All information below comes from the Swift documentation and is for personal lea
 ### hasSuffix(_:)  
 
   특정 suffix(끝에 붙어서 어떤 한 다른 단어를 만드는 단어)로 끝나는 문자열인지 아닌지를 Boolean value를 리턴합니다. 위의 예시에서는 red pepper라는 문자열이 pepper로 끝나기 때문에 true를 반환합니다.
-
 
 ## for-in과 Dictionary  
 
@@ -344,3 +341,35 @@ All information below comes from the Swift documentation and is for personal lea
 <!-- ## Extension  
 
   Extension은 이미 존재하는 class, structure, enumeration, protocol타입에 새로운 기능을 추가합니다. -->
+
+## Early Exit  
+
+  guard statement는 if statement처럼 Boolean 값에 따라 코드를 실행합니다.
+  guard statement뒤에 오는 코드를 실행시키기 위해, 조건이 true여야만 하는 상황을 요구할 때 guard statement를 사용합니다. if문과 다르게 항상 else절이 함께 사용됩니다.  
+
+  ```swift  
+  func greet(person: [String: String]) {
+    guard let name = person["name"] else {
+      return
+    }
+
+    print("Hello \(name)!")
+
+    guard let location = person["location"] else {
+      print("I hope the weather is nice near you.")
+      return
+    }
+
+    print("I hope the weather is nice in \(location).")
+  }
+
+  greet(person: ["name": "John"])
+  // Prints "Hello John!"
+  // Prints "I hope the weather is nice near you."
+
+  greet(person: ["name": "Jane", "location": "Cupertino"])
+  // Prints "Hello Jane!"
+  // Prints "I hope the weather is nice in Cupertino."
+  ```
+
+  만약 조건이 false라면 else 브랜치의 코드가 실행됩니다. 이런 경우에는 return, break, continue, throw등의 control transfer statement를 사용하여 코드 블락을 꼭 벗어나 주어야 합니다.

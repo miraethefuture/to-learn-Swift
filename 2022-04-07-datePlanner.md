@@ -17,12 +17,12 @@ toc_icon: "kiwi-bird"
 [Sample Apps Tutorials: About Me(Navigating Apps)](https://developer.apple.com/tutorials/sample-apps/aboutme)  
 <sub>아래 모든 정보의 출처는 apple developer 공식 페이지이며 개인의 학습 용도로만 사용되었음을 밝힙니다.</sub>
 
+🐤 Date Planner 앱은 날짜별로 이벤트를 계획하고 정리하는 앱입니다.  
+이 튜토리얼에서는 list, 그리고 이벤트를 보여줄 동적 리스트를 생성하기 위해 observable data model에 대해 배웁니다.
+
 # Section 1: App Configuration
 
-  앱이 views들 사이에서 데이터를 공유하는 방법
-
-  - 하나의 데이터 object를 만든다.
-  - 전체 view hierachy에서 object를 사용한다.
+  앱이 하나의 데이터 객체를 생성하고 그것을 전체 뷰 계층에서 사용 가능하도록 함으로써 views들 사이에서 데이터를 공유하는 방식에 대해 알아봅니다.
 
 ## DatePlannerApp.swift  
 
@@ -39,6 +39,9 @@ toc_icon: "kiwi-bird"
       WindowGroup {
         NavigationView {
             EventList()
+            // 더 넓은 화면을 사용할 때 (iPad의 가로 전체 화면 등) 필요한 요소          
+            // 화면이 나뉘어졌을 때 빈 화면에 placeholder로 Text view의 내용이 나타남
+            // 리스트의 아이템을 선택하면 해당 이벤트 뷰로 바뀌게 됨
             Text("Select an Event")
                 .foregroundStyle(.secondary)
         }
@@ -49,12 +52,10 @@ toc_icon: "kiwi-bird"
   ```
 ### NavigationView
 
-  - 서로 다른 views를 이동하기 위해 NavigationView를 사용합니다.
+  - views를 이동하기 위해 앱의 top-level view에 NavigationView를 작성합니다.
   - NavigationView 아래에는 앱의 home view가 작성됩니다.
   - 이 앱의 첫화면이자 home view는 EventList() 입니다.
   - iPad의 가로 화면과 같은 더 넓은 앱화면 구성에서, SwiftUI는 NavigationView를 이용할 때 여러개의 컨텐츠를 하나의 스택이 아닌 나란한 행들로 화면에 나타냅니다. 이 앱에서 EventList는 하나의 sidebar column에 나타납니다. 각 컨텐츠는 primary pane에 나타납니다.
-
-  <!-- Select an Event 나타나는 곳이 어딜까? -->
 
 ### var eventData  
 
@@ -122,7 +123,7 @@ toc_icon: "kiwi-bird"
 
   Event planner는 데이터를 분류, 구성하기 위해서 여러개의 Event object의 모음(collection)을 사용합니다. 각각의 Event object는 캠핑, 여행, 생일파티와 같은 특정 이벤트를 나타냅니다.
 
-  - **Identifiable protocol**은 이벤트의 리스트를 생성할 때 SwiftUI가 이벤트의 값을 다른 것들과 확실히 구별하고 그것을 업데이트 해줍니다.
+  - **Identifiable protocol**은 이벤트의 리스트를 생성할 때 SwiftUI가 이벤트의 값을 다른 것들과 확실히 구별하고 그것을 업데이트 할 수 있도록 합니다.
 
 ### 📖 틈새 영어 단어: populate
   <div class="notice">
@@ -154,6 +155,10 @@ toc_icon: "kiwi-bird"
   ```
   에를 들어 위의 isPast property는 현재 날짜, 시간보다 이벤트의 날짜 시간이 적으면 true를 반환합니다. 이것을 이용해 사용자들은 과거 이벤트를 위한 카테고리에 지난 이벤트들을 모아둘 수 있습니다.
 
+<!-- 👷 #### filter(_:)   -->
+
+
+
 #### UUID()  
 
   <sub>[참고한 페이지](https://www.hackingwithswift.com/books/ios-swiftui/working-with-identifiable-items-in-swiftui)</sub>
@@ -180,16 +185,18 @@ toc_icon: "kiwi-bird"
   }
   ```
 
-  Event type과 마찬가지로 EventTask type 역시 Identifiable protocol을 따릅니다. 이것은 SwiftUI이 리스트 속 to-do 아이템의 모양을 관리하고 업데이트 할 수 있도록 합니다. EventTask type은 id, text, isComplete, isNew와 같은 to-do 아이템의 속성들을 가지고 있습니다.
+  Event type과 마찬가지로 EventTask type 역시 Identifiable protocol을 따릅니다. 이것은 SwiftUI이 리스트 속 to-do 아이템의 상태를 관리하고 업데이트 할 수 있도록 합니다. EventTask type은 id, text, isCompleted, isNew와 같은 to-do 아이템의 속성들을 가지고 있습니다.
+  사용자가 한 task를 완료했다고 표시하면, isCompleted를 true로 설정할 것입니다. 이렇게 함으로써 앱이 남아있는 task를 추적할 수 있게 합니다.
 
 # Section 4: Event Data
 
-  앱의 event list에 정보를 입력하기 위해 observable object인 EventData를 사용합니다. 그리고 어떻게 데이터의 구조를 구성하고 업데이트하는지 알아봅니다.  
+  앱의 이벤트 목록에 정보를 채우기 위해 observable object인 EventData를 사용합니다. 이 섹션에서는 어떻게 데이터를 구성하고 업데이트하는지 알아봅니다.  
 
 ## EventData type  
 
   ```swift
   // EventData.swift
+
   import SwiftUI
 
   class EventData: ObservableObject {
@@ -208,12 +215,12 @@ toc_icon: "kiwi-bird"
   }
   ```
 
-  - EventData type은 어플에 나타나는 모든 이벤트를 저장하고 수정합니다.
-  - ObservableObject protocol을 따릅니다. -> EventData에 있는 published values 중 어떤 것에든 변화가 일어나면 SwiftUI가 그 values를 사용하고 있는 view들을 찾고 업데이트 해줍니다.
+  - EventData type은 어플에 나타나는 모든 이벤트에 대한 정보를 저장하고 수정합니다.
+  - ObservableObject protocol을 따릅니다. 이것은 EventData에 있는 published values 중 어떤 것에든 변화가 일어나면 SwiftUI가 그 values를 사용하고 있는 view들(observers)을 찾고 자동으로 업데이트 해줍니다.
 
 ### events property
 
-  - EventData는 events라는 property를 가지고 있습니다. events는 Event라는 배열을 가지고 있습니다. (배열들은 미리 여러개의 이벤트 값이 입력되어 있습니다.)
+  - EventData는 events라는 property를 가지고 있습니다. 위의 예시에서 이 property는 Event타입의 값을 가진 배열로 값이 미리 채워져 있습니다.
   - @Published property wrapper는 events 배열에 변화가 일어날때마다 SwiftUI가 변화를 인지하고 그 배열을 사용하는 view들을 업데이트 하게 합니다. 이것은 배열로부터 이벤트를 추가하거나 삭제하면 바로 UI에 보여지도록 합니다.
 
 ### EventData의 메서드  
@@ -228,7 +235,11 @@ toc_icon: "kiwi-bird"
   }
   ```
   위의 메서드는 선택된 이벤트의 모든 정보를 삭제해줍니다.
-   
+
+<!-- #### class EventData
+
+  class는 인스턴스의 값이 변경되면 메모리에 생성된 클래스 자체의 값도 함께 바뀌기 때문에 class를 사용하는걸까? -->
+
 
 <!-- #### removeAll(where:)  
 
@@ -239,3 +250,28 @@ toc_icon: "kiwi-bird"
 <div class="notice--warning">
 배열의 마지막 요소 뒤에 왜 , 가 있을까?
 </div> -->
+
+# Section 5: Event List  
+
+  List view를 사용하여 앱의 주요 UI인 event list를 그리는 방법에 대해 알아봅니다.
+
+## @EnvironmentObject  
+
+  DatePlannerApp.swift에서 가장 높은 레벨의 네비게이션 뷰는 EventData의 인스턴스를 통과시키기 위해 .environmentObject modifier를 사용합니다. 이것으로 모든 child views는 인스턴스에 쉽게 접근할 수 있게 됩니다.  
+
+  ```swift
+  // EventList.swift
+
+  import SwiftUI
+
+  struct EventList: View {
+      @EnvironmentObject var eventData: EventData
+      //...
+  }
+  ```
+
+  Child view인 EventList에서 @EnvironmentObject property wrapper를 사용, EventData type을 주어 변수를 정의함으로써 EventData 인스턴스의 data에 접근할 수 있게 됩니다.  
+
+## List view  
+
+  목록을 생성하기 위해 List view를 사용하고 ForEach loop를 사용해서 앞에서 설정한 모든 시간대를 기준으로 반복합니다. (nextSevenDays, nextThirtyDays, future, past)
