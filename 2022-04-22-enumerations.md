@@ -42,7 +42,7 @@ toc_icon: "kiwi-bird"
 
   north, south, east, west와 같이 enumeration 안에 정의된 값들을 enumeration cases 라고 합니다. 새 enumeration cases를 작성할 때는 case 키워드로 시작합니다.  
 
-  여러개의 cases는 한줄에 ,라고 분리해 작성할 수 있습니다.
+  아래 예시와 같이 여러개의 case를 ','를 사용하여 한 줄에 작성할 수 있습니다.
 
   ```swift
   enum Planet {
