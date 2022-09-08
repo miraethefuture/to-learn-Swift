@@ -50,7 +50,7 @@ toc_icon: "kiwi-bird"
   }
   ```  
 
-  각각의 enumeration definition은 새로운 type을 정의합니다. Swift의 다른 type들처럼, 이름(CompassPoint, Planet과 같이)은 대문자로 시작합니다. 복수형보다는 단수형의 이름을 지어주어 명확히 읽히도록 합니다.  
+  각각의 enumeration definition은 새로운 타입을 정의합니다. Swift의 다른 타입들처럼, 이름(CompassPoint, Planet과 같이)은 대문자로 시작합니다. 복수형보다는 단수형의 이름을 지어주어 명확히 읽히도록 합니다.  
 
   ```swift
   var directionToHead = CompassPoint.west
