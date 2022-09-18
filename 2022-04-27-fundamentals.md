@@ -18,9 +18,9 @@ toc_icon: "kiwi-bird"
 
 # Initializers  
 
-  모든 structures는 적어도 하나의 initializer를 포함하고 있습니다. Initializer는 어떤 한 type의 새 인스턴스를 리턴하는 function과 유사합니다. 자주 사용되는 많은 types이 argument가 없는 initializer를 가지고 있습니다. 바로 init()입니다.  
+  모든 structures는 적어도 하나의 initializer를 포함하고 있습니다. Initializer는 어떤 한 타입의 새 인스턴스를 리턴하는 함수와 유사합니다. 자주 사용되는 많은 타입들이 인자가 없는 initializer를 가지고 있습니다. 바로 init()입니다.  
 
-  init() initializer로 생성된 인스턴스들은 기본값을 가집니다.  
+  init() 이니셜라이저로 생성된 인스턴스들은 기본값을 가집니다.  
 
   ```swift
   var string = String.init()  // 기본값 -> ""
@@ -28,7 +28,7 @@ toc_icon: "kiwi-bird"
   var bool = Bool.init()      // 기본값 -> false
   ```
 
-  위의 initializer를 아래와 같은 방법으로 더 간단히 작성할 수 있습니다.
+  위의 이니셜라이저는 아래와 같은 방법으로 더 간단히 작성할 수 있습니다.
 
   ```swift
   var string = String()  // 기본값 -> ""
@@ -36,11 +36,11 @@ toc_icon: "kiwi-bird"
   var bool = Bool()      // 기본값 -> false
   ```  
 
-## Default Values  
+## 기본값(Default Values) 
 
-  새로운 인스턴스를 생성할 때, Swift는 해당 type의 모든 properties의 값을 요구합니다.
+  새로운 인스턴스를 생성할 때, Swift는 해당 타입의 모든 속성의 값을 요구합니다.
 
-  첫번째 방법으로는, Type을 정의할 때 기본값을 줄 수 있습니다. 인스턴스들이 생성될 때 이 값을 이용하게 됩니다. 이 방법은 일정한 기본 값을 가지는 object를 정의할 때 유용하게 사용됩니다.  
+  첫번째 방법으로는, 타입을 정의할 때 기본값을 줄 수 있습니다. 인스턴스들이 생성될 때 이 값을 이용하게 됩니다. 이 방법은 일정한 기본 값을 가지는 object를 정의할 때 유용하게 사용됩니다.  
 
   모든 instance properties에 기본값을 설정해주면, Swift 컴파일러가 자동으로 기본 생성자를 생성합니다.  
 
