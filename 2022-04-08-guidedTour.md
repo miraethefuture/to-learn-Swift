@@ -49,7 +49,7 @@ All information below comes from the Swift documentation and is for personal lea
   ```
   - []를 이용하여 배열과 딕셔너리를 생성할 수 있습니다.
   - key를 이용하여 값에 접근할 수 있습니다.
-  - 마지막 요소 다음에 ,(콤 )가 허용됩니다.
+  - 마지막 요소 다음에 ,(콤마)가 허용됩니다.
   - 배열에 값을 추가시 배열의 크기는 자동으로 늘어납니다.
   - print(배열이름)을 이용하여 간단하게 배열을 출력할 수 있습니다.
 
@@ -62,16 +62,16 @@ All information below comes from the Swift documentation and is for personal lea
 
 # Optionals
 
-  값이 없을 수도 있는 상황에서 optionals를 사용합니다. Optional은 두가지 가능성을 나타냅니다.
+  값이 있을 수도, 없을 수도 있는 상황에서 옵셔널을 사용합니다. Optional은 두가지 가능성이 있다는 것을 나타냅니다.
 
   1. 값이 있어서 optional을 unwrap하여 그 값에 접근할 수 있다.
   2. 값이 없다.
 
-## optionals가 사용되는 방법  
+## 옵셔널이 사용되는 방법  
 
 ## Int()  
 
-  Int type은 문자열을 Int로 변환할 수 있는 initializer를 가지고 있습니다.
+  Int type은 문자열을 Int로 변환할 수 있는 이니셜라이저를 가지고 있습니다.
   ```swift  
   let possibleNumber = "123"
   let convertedNumber = Int(possibleNumber)
@@ -79,7 +79,7 @@ All information below comes from the Swift documentation and is for personal lea
   print(convertedNumber)
   // Prints "optional(123)"
   ```
-  위의 방식으로 문자열을 Int 타입으로 변환할 수 있지만 모든 문자열을 Int 타입으로 변환할 수 있는 것은 아닙니다. "hello, world"와 같은 문자열은 명확한 숫자 값을 가지고 있지 않기 때문에 변환되지 않습니다. 이렇게 initializer가 변환을 실패할 수 있는 경우가 있기 때문에 Int가 아닌 optional Int 값을 변환합니다. Optional Int는 **Int?** 라고 표기합니다. '?'는 Int값이 있거나 어떠한 값도 가지고 있지 않다는 것을 나타냅니다. (Bool, String과 같은 값은 가지지 않음)
+  위의 방식으로 문자열을 Int 타입으로 변환할 수 있지만 모든 문자열을 Int 타입으로 변환할 수 있는 것은 아닙니다. "hello, world"와 같은 문자열은 숫자 값을 가지고 있지 않기 때문에 변환되지 않습니다. 이렇게 이니셜라이저가 변환을 실패할 수 있는 경우가 있기 때문에 Int가 아닌 optional Int 값을 변환합니다. 옵셔널 Int는 **Int?** 라고 표기합니다. '?'는 Int값이 있거나, 또는 어떠한 값도 가지고 있지 않다는 것을 나타냅니다. (Bool, String과 같은 값은 가지지 않음)
 
 ## nil  
 
