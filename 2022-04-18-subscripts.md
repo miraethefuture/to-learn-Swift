@@ -18,7 +18,7 @@ toc_icon: "kiwi-bird"
 
 # 👩‍🌾 ..
 
-  Classes, structures, 그리고 enumerations는 subscripts를 정의할 수 있습니다. Subscripts는 collection이나 list 또는 sequence의 멤버 요소에 접근하는 쉬운 방법입니다. 값을 설정하고 가져오기 위한 메서드 없이 subscripts를 사용하여 인덱스로 값을 설정하거나, 값을 가져옵니다. 예를 들어, someArray[index]로 Array instance의 요소에 접근할 수 있습니다. Dictionary instance의 요소에 접근하기 위해서는 someDictionary[key]를 이용합니다.  
+  클래스, 스트럭쳐, 그리고 enumerations는 subscripts를 정의할 수 있습니다. Subscripts는 집합이나 리스트, 또는 시퀀스의 멤버 요소에 접근하는 쉬운 방법입니다. 값을 설정하고 가져오기 위한 메서드 없이 subscripts를 사용하여 인덱스로 값을 설정하거나 가져옵니다. 예를 들어, someArray[index]로 Array instance의 요소에 접근할 수 있습니다. Dictionary instance의 요소에 접근하기 위해서는 someDictionary[key]를 이용합니다.  
 
   하나의 타입에 여러개의 subscripts를 정의할 수 있습니다. Subscript에 통과된 인덱스 값의 타입을 기준으로 그 중 적합한 subscript가 선택됩니다. Subscript는 1차원에 제약되지 않습니다. 커스텀 타입이 필요로 하는 여러개의 input 패러미터를 이용하여 subscript를 정의할 수 있습니다.
 
