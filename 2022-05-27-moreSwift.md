@@ -79,8 +79,8 @@ toc_icon: "kiwi-bird"
 
 # Completion Handler
 
-    Completion handler는 어떤 task가 완료된 후에 호출되는 callback function이다.  
-    Callback function은 어떤 function의 인자(argument)로 통과된 function을 말한다.
+    컴플리션 핸들러는 어떤 기능이 작동 완료된 후에 호출되는 콜백 함수이다.
+    콜백 함수는 어떤 함수의 인자(argument)로 통과된 함수를 말한다.
 
   <br>
 
