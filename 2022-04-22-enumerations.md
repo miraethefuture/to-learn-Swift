@@ -17,7 +17,7 @@ toc_icon: "kiwi-bird"
 ---
 
 # enum
-  Enumeration은 연관된 값의 그룹을 위한 일반적인 type을 정의합니다. 그리고 그 값들을 코드안에서 type-safe한 방식으로 이용할 수 있도록 합니다.
+  Enumeration으로 연관된 값들을 그룹화하는 타입을 정의할 수 있습니다. 그리고 그 값들을 코드안에서 type-safe한 방식으로 이용할 수 있습니다.
 
 ## Enumeration Syntax
 
