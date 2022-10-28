@@ -55,6 +55,7 @@ struct ContentView: View {
                  .foregroundColor(Color.white)
                  .onAppear(perform: {let _ = self.updateTimer})
                 // 여기 이해 안됨. date: date
+                // 미래의 나 등장! - 저 데이트는 State variable date임~! timeString이라는 함수는 시간 정보를 스트링 형식으로 변환하는 함수! Date 타입인 date를 인자로 통과시켜주면 날짜 정보를 문자열로 반환해주는 것!
 
              Text("\(greeting())")
                  .font(.system(size: 75))
