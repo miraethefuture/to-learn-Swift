@@ -8,8 +8,6 @@ tags:
   - Swift
 ---
 
-/assets/images/yourDigitalClock.png
-
 ### 💭 ..    
 <div class="notice">
   <h4>Swift는 어떤 언어일까?</h4>
