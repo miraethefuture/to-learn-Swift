@@ -6,14 +6,9 @@ tags:
   - learning
   - 공부 기록
   - Swift
-show_date: true
-toc: true
-toc_sticky: true
-toc_label: "👷"
-toc_icon: "cog"
-header:
-  teaser: /assets/images/yourDigitalClock.png
 ---
+
+/assets/images/yourDigitalClock.png
 
 ### 💭 ..    
 <div class="notice">
