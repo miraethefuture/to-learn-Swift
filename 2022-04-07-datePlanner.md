@@ -22,7 +22,7 @@ toc_icon: "kiwi-bird"
 
 # Section 1: App Configuration
 
-  앱이 하나의 데이터 객체를 생성하고 그것을 전체 뷰 계층에서 사용 가능하도록 함으로써 views들 사이에서 데이터를 공유하는 방식에 대해 알아봅니다.
+  앱이 하나의 데이터 객체를 생성하고 그것을 전체 뷰 계층에서 사용 가능하도록 함으로써 뷰들 사이에서 데이터를 공유하는 방식에 대해 알아봅니다.
 
 ## DatePlannerApp.swift  
 
@@ -52,10 +52,10 @@ toc_icon: "kiwi-bird"
   ```
 ### NavigationView
 
-  - views를 이동하기 위해 앱의 top-level view에 NavigationView를 작성합니다.
-  - NavigationView 아래에는 앱의 home view가 작성됩니다.
-  - 이 앱의 첫화면이자 home view는 EventList() 입니다.
-  - iPad의 가로 화면과 같은 더 넓은 앱화면 구성에서, SwiftUI는 NavigationView를 이용할 때 여러개의 컨텐츠를 하나의 스택이 아닌 나란한 행들로 화면에 나타냅니다. 이 앱에서 EventList는 하나의 sidebar column에 나타납니다. 각 컨텐츠는 primary pane에 나타납니다.
+  - 뷰 사이를 이동하기 위해 앱의 top-level view에 NavigationView를 작성합니다.
+  - NavigationView 아래에는 앱의 홈뷰가 작성됩니다.
+  - 이 앱의 첫화면이자 홈뷰는 EventList() 입니다.
+  - iPad의 가로 화면과 같은 더 넓은 앱화면 구성에서, SwiftUI는 NavigationView를 이용할 때 여러개의 컨텐츠를 하나의 스택이 아닌 나란한 행들로 화면에 나타냅니다. 이 앱에서 EventList는 하나의 사이드바 컬럼에 나타납니다. 각 컨텐츠는 primary pane에 나타납니다.
 
 ### var eventData  
 
