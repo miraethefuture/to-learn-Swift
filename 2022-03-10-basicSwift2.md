@@ -142,7 +142,7 @@ Xcode에서 처음 프로젝트를 열면 ContentView 그리고 ContentView_Prev
 
 <code>ContentView: View</code>와 <code>var body: some View</code>에서 View는 이 structure가 View protocol을 따를 것이라는 의미입니다. Protocol은 요구사항을 가지고 있습니다. View 프로토콜의 가장 주요한 요구사항은 body property가 있어야 한다는 것입니다.
 
-body property 부분에는 스크린에 나타날 view들이 작성됩니다. 이때의 view는 프로토콜 view가 아닌 Text view, Image view, Button view와 같은 SwiftUI의 built-in view 또는 외부 프레임의 view들을 말합니다. 위 코드에서는 ZStack의 하위에 Image view와 VStack이, 그리고 VStack 하위에는 Text view가 body property 안에 작성되었습니다.
+body property 부분에는 스크린에 나타날 뷰가 작성됩니다. 이때의 뷰는 프로토콜 view가 아닌 Text view, Image view, Button view와 같은 SwiftUI의 built-in 뷰 또는 외부 프레임의 view들을 말합니다. 위 코드에서는 ZStack의 하위에 Image view와 VStack이, 그리고 VStack 하위에는 Text view가 body property 안에 작성되었습니다.
 
 ### 2. 현재 날짜와 시간 정보 가져오기  
 
@@ -175,7 +175,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 ```
 
-시간 정보는 초마다 계속해서 바뀌므로 property wrapper인 @State 를 사용해서 바뀐 시간을 계속해서 업데이트, 반영해 주고 문자열 date에 escape character \ 를 추가해서 Date()를 담고 있는 date 변수의 할당되어 있는 정보를 문자열로 가져옵니다.
+시간 정보는 초마다 계속해서 바뀌므로 property wrapper인 @State를 사용해서 바뀐 시간을 계속해서 업데이트, 반영해 주고 문자열 date에 escape character \ 를 추가해서 Date()를 담고 있는 date 변수의 할당되어 있는 정보를 문자열로 가져옵니다.
 
 
 ### 3. DateFormatter
@@ -224,20 +224,18 @@ func timeString(date: Date) -> String {
 }
 ```
 
-### 여기까지 수정 👷
-
 
 ### 4. Live Time  
 
 
-SwiftUI가 State variable에 일어난 변화들을 감시합니다. @State는 스스로 변화를 만들지는 않습니다.  
+SwiftUI가 State variable에 일어난 변화들을 추적합니다. @State는 스스로 변화를 만들지는 않습니다.  
 Date() initializer는 시간의 한 지점을 가져옵니다. 우리가 방금 만든 디지털 시계가 자동으로 흘러가지 않는 이유이죠.
 
 우리가 보는 시계들처럼 초가 흘러가고 60초가 지나면 1분이 늘어나게 만드려면 매초마다 date variable을 새로 고침해주어야 합니다.  
 그러려면 Timer 객체를 사용하면 됩니다. Timer는 일정 시간이 지나면 특정 메세지를 타겟 객체에 보냅니다. Timer을 설정해주면
 SwiftUI가 @State의 변화를 인식하고 그것에 따라 우리의 시계를 업데이트 해줄 것입니다.
 
- Timer 객체를 생성하는 코드를 작성해봅니다.
+ Timer 객체를 생성하는 코드를 작성해봅니다. 
 
 ```swift
 var updateTimer: Timer {
@@ -261,7 +259,8 @@ Text("\(timeString(date: date))")
 ```
 
 .onAppear(perform: action) 은 function modifier 입니다. View가 나타나면 action을 수행합니다.
-self.updateTimer function은 저장할 필요가 없는 값을 반환하기 때문에 'let _'을 사용했습니다. underscore 는 아무것도 할당하고 싶지 않다는 것을 나타냅니다.
+self.updateTimer computed property는 저장할 필요가 없는 값을 반환하기 때문에 'let _'을 사용했습니다. (let이면 계속해서 다른 수를 반환하는건가?)
+underscore 는 아무것도 할당하고 싶지 않다는 것을 나타냅니다.
 이 스텝까지 잘 마치셨다면 디지털 시계가 초마다 움직이는 것을 볼 수 있을 것입니다!
 
 
