@@ -257,7 +257,7 @@ Timer가 스크린에 나타나도록 해줍니다.
 Text("\(timeString(date: date))")
   .onAppear(perform: {let _ = self.updateTimer})
 ```
-
+// 이 부분 알아보기
 .onAppear(perform: action) 은 function modifier 입니다. View가 나타나면 action을 수행합니다.
 self.updateTimer computed property는 저장할 필요가 없는 값을 반환하기 때문에 'let _'을 사용했습니다. (let이면 계속해서 다른 수를 반환하는건가?)
 underscore 는 아무것도 할당하고 싶지 않다는 것을 나타냅니다.
@@ -318,12 +318,10 @@ Calendar.current.date(bySettingHour...) 메서드는 주어진 date 데이터에
 현재 시간과 비교해서 해당되는 인사말을 greet 변수에 담고 반환합니다.
 여기까지 하면 시간을 스크린에 띄우는 것은 완성!
 
-... 디지털시계 만들기는 계속 됩니다.
-
 <center><video src="https://user-images.githubusercontent.com/85061148/158997210-efaac4ad-797a-4da4-9039-5e5a123a39e9.mov" controls="controls" style="max-width: 600px">
 </video></center>
 <!--
 ### 8. 이제부터는 화면을 꾸며보자.  
 
 시계의 배경 부분을 사진을 넣어 사용할 수 있었으면 좋겠다는 생각이 들었다.  
-검색 중 Unsplash API를 발견했고 적용해보고자 한다. -->
+검색 중 Unsplash API를 발견했고 적용해보고자 한다. 
