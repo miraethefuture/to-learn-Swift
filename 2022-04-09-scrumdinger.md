@@ -169,6 +169,7 @@ All information below comes from the official apple developer page and is for pe
 ### Create a Daily Scrum Model  
 
   DailyScrum의 주목적은 value data를 보여주는 것이기 때문에 struct를 만들어 value type으로 만들 것입니다.  
+  // 무슨.. 말이지..
   (Models Group에 DailyScrum이라는 파일 새로 만들기 후 struct 생성)
 
   ```swift
