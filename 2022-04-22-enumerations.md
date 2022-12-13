@@ -175,9 +175,9 @@ toc_icon: "kiwi-bird"
 
 ## Raw Values  
 
-  Associated values의 대안으로, raw values라는 default 값으로 enumeration의 cases를 미리 채울 수 있습니다. (모두 같은 타입)
-
-  raw ASCII 값을 가지고 있는 enumeration cases:
+  Associated values의 대안으로, raw values라는 기본값으로 enumeration의 cases를 미리 채울 수 있습니다. (모두 같은 타입)
+  아래 예시는 각각 tab, lineFeed, carriageReturn이라 이름 지어진 case들에 할당된 raw ASCII 값을 각 case의 옆쪽에 보여주고 있습니다.
+ 
   ```swift
   enum ASCIIControlCharacter: Character {
       case tab = "\t"
