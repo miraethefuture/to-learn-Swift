@@ -187,4 +187,5 @@ toc_icon: "kiwi-bird"
   ```
   위의 ASCIIControlCharacter enumeration의 raw values의 타입은 Character로 정의 되었습니다.  
 
-  Raw values는 strings, characters, 또는 integer, floating-point number 타입을 가질 수 있습니다. 각 raw value는 유일한 값을 가져야 합니다.
+  Raw values는 strings, characters, 또는 integer, floating-point number 타입을 가질 수 있습니다. 각 raw value는 속해 있는 enumeration의 정의 안에서 유일한(unique) 값을 가져야 합니다.  
+  
