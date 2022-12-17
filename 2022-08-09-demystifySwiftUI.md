@@ -11,7 +11,7 @@ layout: post
 > 이 글의 모든 정보의 출처는 위 링크의 WWDC21 영상입니다.
 {: .block-tip } 
 
- 디미스티파이가  뭔지 먼저 검색해봅니다. 사전에는 to make a subject that seems difficult or complicated easier to understand, especially by explaining it in simpler language. 라고 나와 있습니다. 어렵거나 복잡해보이는 주제를 쉬운 언어를 사용하여 이해하기 쉽도록 만드는 것이라고 하는데요. Demystify SwiftUI! 라고하니...  
+ Demystify가 무슨 뜻인지 먼저 검색해봅니다. 사전에는 to make a subject that seems difficult or complicated easier to understand, especially by explaining it in simpler language. 라고 나와 있습니다. 어렵거나 복잡해보이는 주제를 쉬운 언어를 사용하여 이해하기 쉽도록 만드는 것이라고 하는데요. Demystify SwiftUI! 라고하니...  
  어렵고, 복잡해보이는 SwiftUI를 쉽게 이해해보자는 것 같습니다.  
  
   
@@ -20,7 +20,7 @@ layout: post
 SwiftUI가 선언형 UI 라는 말을 들어보셨을 겁니다. 원하는 UI를 하이레벨 언어로 선언, 묘사하면 SwiftUI가 그것을 그려냅니다. 대부분 이것은 잘 작동하지만 가끔은 의도하지 않은 방식으로 작동할 떄가 있죠. 그리고 바로 그때,  SwiftUI가 보이지 않는 곳에서, 우리가 원하는 결과를 얻기 위해 무엇을 하고 있는지 이해하는 것이 도움이 될 것입니다. 
 
 ## SwiftUI가 우리의 코드를 볼 때, 뭐가 보일까? 
-  - Identity : 아이덴티티는 SwiftUI가 요소를 구별하는 방법입니다. 요소들이 서로 같은지 또는 다른지 identity를 이용하여 알아냅니다.
+  - Identity : 아이덴티티는 SwiftUI가 요소를 구별하는 방법입니다. 요소들이 서로 같은지 또는 다른지 아이덴티티를 이용하여 알아냅니다.
   - Lifetime : 라이프타임은 SwiftUI가 시간에 지남에 따라 달라지는 뷰와 데이터의 존재유무를 추적하는 방법입니다.
   - Dependencies : SwiftUI가 언제 우리의 인터페이스가 업데이트 되야하는지, 그리고 왜 업데이트 되야하는지 이해하는 방법입니다.  
   
