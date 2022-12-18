@@ -98,7 +98,7 @@ All information below comes from the Swift documentation and is for personal lea
   // surveyAnswer is automatically set to nil
   ```
 
-## Nil-Coalescing Operator  
+## Nil-Coalescing Operator(닐 코얼레싱)
 
   Nil-Coalescing Operator (a ?? b)는 만약 옵셔널 a가 값을 가지고 있다면 optional a를 unwrap 합니다. a가 nil이라면 default 값인 b를 리턴합니다.
 
