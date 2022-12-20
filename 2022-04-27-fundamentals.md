@@ -18,7 +18,7 @@ toc_icon: "kiwi-bird"
 
 # Initializers  
 
-  모든 structures는 적어도 하나의 initializer를 포함하고 있습니다. Initializer는 어떤 한 타입의 새 인스턴스를 리턴하는 함수와 유사합니다. 자주 사용되는 많은 타입들이 인자가 없는 initializer를 가지고 있습니다. 바로 init()입니다.  
+  모든 스트럭처는 적어도 하나의 이니셜라이저(생성자)를 포함하고 있습니다. Initializer는 어떤 한 타입의 새 인스턴스를 리턴하는 함수와 유사합니다. 자주 사용되는 많은 타입들이 인자가 없는 initializer를 가지고 있습니다. 바로 init()입니다.  
 
   init() 이니셜라이저로 생성된 인스턴스들은 기본값을 가집니다.  
 
