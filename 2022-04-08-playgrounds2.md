@@ -55,7 +55,7 @@ toc_icon: "kiwi-bird"
   var myNum = 0
   myNum = myNum + 1
   ```
-  variable을에 할당된 수와 비교 연산자를 이용해서 while문의 Boolean 조건을 만들 수 있습니다. incrementing values 하며 반복 횟수 등을 기록할 수 있습니다.
+  변수에 할당된 수와 비교 연산자를 이용해서 while문의 Boolean 조건을 만들 수 있습니다. 값을 증가시키며 반복 횟수 등을 기록할 수 있습니다.
 
 ### 변수 이름 정하기
 
