@@ -18,11 +18,11 @@ toc_icon: "kiwi-bird"
 <sub>아래 모든 정보의 출처는 apple developer 공식 페이지이며 개인의 학습 용도로만 사용되었음을 밝힙니다.</sub>
 
 🐤 Date Planner 앱은 날짜별로 이벤트를 계획하고 정리하는 앱입니다.  
-이 튜토리얼에서는 list, 그리고 이벤트를 보여줄 동적 리스트를 생성하기 위해 observable data model에 대해 배웁니다.
+이 튜토리얼에서는 리스트, 그리고 이벤트를 보여줄 동적 리스트를 생성하기 위해 observable data model에 대해 배웁니다.
 
 # Section 1: App Configuration
 
-  앱이 하나의 데이터 객체를 생성하고 그것을 전체 뷰 계층에서 사용 가능하도록 함으로써 뷰들 사이에서 데이터를 공유하는 방식에 대해 알아봅니다.
+  앱이 하나의 데이터 객체를 생성하고 그것을 전체 뷰 계층에서 사용 가능하도록하여 데이터를 공유하는 방식에 대해 알아봅니다.
 
 ## DatePlannerApp.swift  
 
@@ -39,11 +39,12 @@ toc_icon: "kiwi-bird"
       WindowGroup {
         NavigationView {
             EventList()
+            Text("Select an Event")
+                .foregroundStyle(.secondary)
             // 더 넓은 화면을 사용할 때 (iPad의 가로 전체 화면 등) 필요한 요소          
             // 화면이 나뉘어졌을 때 빈 화면에 placeholder로 Text view의 내용이 나타남
             // 리스트의 아이템을 선택하면 해당 이벤트 뷰로 바뀌게 됨
-            Text("Select an Event")
-                .foregroundStyle(.secondary)
+            
         }
         .environmentObject(eventData)
       }
@@ -52,7 +53,7 @@ toc_icon: "kiwi-bird"
   ```
 ### NavigationView
 
-  - 뷰 사이를 이동하기 위해 앱의 top-level view에 NavigationView를 작성합니다.
+  - 뷰와 뷰 사이를 이동하기 위해 앱의 top-level view에 NavigationView를 작성합니다.
   - NavigationView 아래에는 앱의 홈뷰가 작성됩니다.
   - 이 앱의 첫화면이자 홈뷰는 EventList() 입니다.
   - iPad의 가로 화면과 같은 더 넓은 앱화면 구성에서, SwiftUI는 NavigationView를 이용할 때 여러개의 컨텐츠를 하나의 스택이 아닌 나란한 행들로 화면에 나타냅니다. 이 앱에서 EventList는 하나의 사이드바 컬럼에 나타납니다. 각 컨텐츠는 primary pane에 나타납니다.
