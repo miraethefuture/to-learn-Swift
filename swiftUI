@@ -1,0 +1,11 @@
+
+# @StateObject 와 @ObservedObject
+
+```swift
+@StateObject var viewModel = ViewModel()
+
+@ObservedObject var viewModel = ViewModel()
+
+```
+- 위와 같이 뷰 모델의 인스턴스를 생성할 때 @ObservedObject를 사용하면 뷰가 사라지고 다시 그려질 때마다 뷰모델의 인스턴스를 다시 생성함
+- @StateObject는 뷰 모델의 인스턴스를 쥐고 있다가 재사용 함
