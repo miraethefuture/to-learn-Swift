@@ -1,0 +1,14 @@
+
+  SwiftUI 프로젝트에서 UIKit 뷰와 컨트롤러를 사용하기 위해서 UIViewRepresentable, UIViewControllerRepresentable 프로토콜을 따르는 타입을 생성해야 함.  
+  UIKit을 사용하여 설정하고, 뷰를 보여주지만 라이프 사이클은 SwiftUI가 관리하게 됨.  
+  UIViewRepresentable 프로토콜을 따르는 경우, makeUIView 함수를 꼭 구현해야 함. 
+  makeUIView 함수는 처음에 한 번 호출됨.  
+ 
+ 
+  UIKit 뷰를 보여주는 SwiftUI 뷰는 Coordinator 타입을 정의할 수 있음.  
+  makeCoordinator() -> Coordinator {} 메서드를 통해 정의한 Coordinator 타입을 생성할 수 있음.  
+  
+  makeCoordinator() 함수를 makeUIView() 함수 전에 작성하여 UIView를 설정할 때 coordinator를 사용할 수 있도록 함.  
+  
+  SwiftUI 뷰의 @State 변수를 representable 뷰 쪽에서 @Binding으로 연결할 수 있음.
+  
