@@ -27,9 +27,9 @@ All information below comes from the official apple developer page and is for pe
 
 ## Tour of the App
 
-  많은 소프트웨어 엔지니어링 팀들이 그날의 업무에 대한 계획을 짜기 위해 **scrums**라고 알려진 daily meeting을 합니다. Scrums는 미팅에 참석한 사람들이 어제 이뤄낸 성과들과 오늘 작업할 일, 그리고 그들의 작업에 영향을 미칠지도 모르는 장애물에 대하여 대화를 나누는 짧은 미팅입니다.  
+  많은 소프트웨어 엔지니어링 팀들이 그날의 업무에 대한 계획을 짜기 위해 **scrums**라고 알려진 데일리 미팅을 합니다. Scrums는 미팅에 참석한 사람들이 어제 이뤄낸 성과들과 오늘 작업할 일, 그리고 그들의 작업에 영향을 미칠지도 모르는 장애물에 대하여 대화를 나누는 짧은 미팅입니다.  
 
-  이 모듈은 사용자들의 데일리 scrums의 관리를 돕는 iOS앱인 Scrumdinger를 개발하는 과정을 안내합니다.  
+  이 모듈은 scrums의 관리를 돕는 iOS앱인 Scrumdinger를 개발하는 과정을 안내합니다.  
 
   Scrums가 집중력있게 짧은 시간동안 진행될 수 있도록 Scrumdinger는 미팅에 참가한 사람들이 얼만큼 이야기해야 하는지를 시각적, 청각적 신호를 사용해 알려줍니다. 이 앱은 또한 남은 시간을 알려주는 스크린을 제공합니다.  
 
