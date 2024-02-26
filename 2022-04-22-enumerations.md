@@ -191,5 +191,5 @@ toc_icon: "kiwi-bird"
 
 ## Recursive Enumerations
 
-  enumeration 의 인스턴스를 associated value로 가지는 케이스를 가진 enumeration을 말함.
+  enumeration 자신의 또 다른 인스턴스를 associated value로 가지는 케이스를 가진 enumeration을 말함.
   
