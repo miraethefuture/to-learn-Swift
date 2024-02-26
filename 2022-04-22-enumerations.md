@@ -124,7 +124,7 @@ toc_icon: "kiwi-bird"
 
 ## Associated Values  
 
-  위의 예시들은 enumeration의 cases가 어떻게 스스로의 권리를 가지고 있는 정의된 값인지를 보여주었습니다. Planet.earth에 constant나 variable을 설정할 수 있고, 이 값을 나중에 확인할 수 있습니다. 가끔씩 다른 타입의 값을 이 cases 값의 옆에 담을 수 있는 것이 유용할 수 있습니다. 이 추가적인 정보를 associated value라고 합니다. 이것은 case를 사용할 때마다 달라집니다.  
+  Planet.earth에 상수나 변수를 설정할 수 있고, 이 값을 나중에 확인할 수 있습니다. 가끔씩 다른 타입의 값을 이 cases 값의 옆에 담을 수 있는 것이 유용할 수 있습니다. 이 추가적인 정보를 associated value라고 합니다. 이것은 case를 사용할 때마다 달라집니다.  
 
   주어진 타입의 associated values를 담기 위해 Swift의 enumeration을 정의할 수 있습니다. 필요하다면 각각의 case마다 다른 타입의 값을 줄 수 있습니다.  
 
@@ -140,7 +140,7 @@ toc_icon: "kiwi-bird"
       case qrCode(String)
   }
   ```
-
+  "Barcode라는 enumeration 타입을 정의했고, 이것은 Int, Int, Int, Int, 타입의 associated values를 가진 upc case와, String 타입의 associated value를 가진 qrCode case를 가진다."
   위의 definition은 어떤 Int나 String값도 실제로 제공하지 않습니다. 단지 Barcode constant 또는 variable이 담을 수 있는 associated values의 타입을 제공할 뿐입니다.
 
   ```swift
@@ -188,4 +188,8 @@ toc_icon: "kiwi-bird"
   위의 ASCIIControlCharacter enumeration의 raw values의 타입은 Character로 정의 되었습니다.  
 
   Raw values는 strings, characters, 또는 integer, floating-point number 타입을 가질 수 있습니다. 각 raw value는 속해 있는 enumeration의 정의 안에서 유일한(unique) 값을 가져야 합니다.  
+
+## Recursive Enumerations
+
+  enumeration 의 인스턴스를 associated value로 가지는 케이스를 가진 enumeration을 말함.
   
