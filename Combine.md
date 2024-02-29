@@ -32,4 +32,18 @@
         .map( { ($0.object as! NSTextField).stringValue } )
         .assign(to: \MyViewModel.filterString, on: myViewModel)
   ```
-- 
+- publisher chain이 원하는 타입을 생성한 뒤, assign(to:on:)을 사용하여 커스텀 뷰 모델에 filterString에 해당 값을 할당함.
+
+# Customize Publishers with Operators
+  ```swift
+  let sub = NotificationCenter.default
+    .publisher(for: NSControl.textDidChangeNotification, object: filterField)
+    .map( { ($0.object as! NSTextField).stringValue } )
+    .filter( { $0.unicodeScalars.allSatisfy({CharacterSet.alphanumerics.contains($0)}) } )
+    .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+    .receive(on: RunLoop.main)
+    .assign(to:\MyViewModel.filterString, on: myViewModel)
+  ```
+- filter(_:)를 사용항여 string value중 알파벳과 숫자로만 이루어진 텍스트를 필터링
+- 만약 필터링 작업이, 큰 데이터 베이스에서 쿼리 작업을 하는 경우 등 시간이 오래 걸리는 작업이라면 유저가 타이핑을 할때마다 필터링을 하지 않고, 타이핑을 멈출 때를 기다렸다가 작성된 스트링으로 필터링을 할 수 있음.
+- debounce(for:scheduler:options:) operator를 사용하여 특정 미니멈 시간이 지나야 publisher가 이벤트를 일으킬 수 있도록 할 수 있음.
